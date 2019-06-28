@@ -3,9 +3,14 @@ spring:
     active: local
 
 spring.batch.job.names: ${job.name:NONE}
+logging.level.org.springframework.batch: DEBUG
 ---
 spring:
   profiles: local
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
   datasource:
     hikari:
       jdbc-url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE

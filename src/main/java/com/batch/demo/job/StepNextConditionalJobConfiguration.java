@@ -2,7 +2,6 @@ package com.batch.demo.job;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.batch.core.ExitStatus;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
@@ -45,7 +44,7 @@ public class StepNextConditionalJobConfiguration {
 
                     //on이 캐치하는 상태값이 BatchStatus가 아닌 ExitStatus이다
                     //그래서 분기처리를 위해 상태값 조정이 필요하시다면 ExitStatus를 조정 해야한다.
-//                    contribution.setExitStatus(ExitStatus.FAILED);
+                    //contribution.setExitStatus(ExitStatus.FAILED);
                     return RepeatStatus.FINISHED;
                 })
                 .build();
